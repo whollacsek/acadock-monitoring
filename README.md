@@ -32,7 +32,7 @@ Run from docker:
 docker run -v /sys/fs/cgroup:/host/cgroup:ro         -e CGROUP_DIR=/host/cgroup \
            -v /proc:/host/proc:ro                    -e PROC_DIR=/host/proc \
            -v /var/run/docker.sock:/host/docker.sock -e DOCKER_URL=unix:///host/docker.sock \
-					 -p 4244:4244 --privileged --pid=host \
+           -p 4244:4244 --privileged --pid=host \
            -d scalingo/acadock-monitoring
 ```
 
