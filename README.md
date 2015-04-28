@@ -56,4 +56,4 @@ API
 
 ### Developers
 
-> Léo Unbekandt `<leo@unbekandt.eu>`
+> Léo Unbekandt `<leo@scalingo.com>`
