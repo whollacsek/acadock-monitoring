@@ -5,12 +5,13 @@ import (
 	"encoding/json"
 	"os/exec"
 
+	"github.com/Scalingo/acadock-monitoring/config"
 	"github.com/Scalingo/go-netns"
 	"github.com/Scalingo/go-netstat"
 )
 
 func NetStatsRunner(pid string) (netstat.NetworkStats, error) {
-	ns, err := netns.Setns(pid)
+	ns, err := netns.SetnsFromProcDir(config.ENV["BASE_PROC_PATH"] + "/" + pid)
 	if err != nil {
 		return nil, err
 	}

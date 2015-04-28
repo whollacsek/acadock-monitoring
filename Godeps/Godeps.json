@@ -2,12 +2,13 @@
 	"ImportPath": "github.com/Scalingo/acadock-monitoring",
 	"GoVersion": "go1.4",
 	"Packages": [
+		"github.com/Scalingo/acadock-monitoring/runner/net",
 		"github.com/Scalingo/acadock-monitoring/server"
 	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/Scalingo/go-netns",
-			"Rev": "078e5ad1a6f9f39abc10eef3c1b00d937d2922bd"
+			"Rev": "21a4d4829db540cca6ef1b8e6e3c00374af4c604"
 		},
 		{
 			"ImportPath": "github.com/Scalingo/go-netstat",

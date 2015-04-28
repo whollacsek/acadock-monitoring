@@ -6,10 +6,11 @@ import (
 )
 
 var ENV = map[string]string{
-	"DOCKER_URL":    "http://localhost:4243",
-	"PORT":          "4244",
-	"REFRESH_TIME":  "5",
-	"CGROUP_SOURCE": "docker",
+	"DOCKER_URL":       "http://localhost:4243",
+	"PORT":             "4244",
+	"REFRESH_TIME":     "5",
+	"CGROUP_SOURCE":    "docker",
+	"BASE_CGROUP_PATH": "/sys/fs/cgroup",
 }
 
 var RefreshTime int
@@ -32,9 +33,9 @@ func init() {
 
 func CgroupPath(cgroup string, id string) string {
 	if ENV["CGROUP_SOURCE"] == "docker" {
-		return "/sys/fs/cgroup/" + cgroup + "/docker/" + id
+		return ENV["BASE_CGROUP_PATH"] + "/" + cgroup + "/docker/" + id
 	} else if ENV["CGROUP_SOURCE"] == "systemd" {
-		return "/sys/fs/cgroup/" + cgroup + "/system.slice/docker-" + id + ".scope"
+		return ENV["BASE_CGROUP_PATH"] + "/" + cgroup + "/system.slice/docker-" + id + ".scope"
 	} else {
 		panic("unknown cgroup source" + ENV["CGROUP_SOURCE"])
 	}
