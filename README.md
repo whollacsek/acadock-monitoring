@@ -13,6 +13,11 @@ Configuration
 From environment
 
 * `PORT`: port to bind (4244 by default)
+* `DOCKER_URL`: docker endpoint (http://127.0.0.1:4243 by default)
+* `REFRESH_TIME`: number of second between CPU/net refresh (1 by default)
+* `CGROUP_SOURCE`: "docker" or "systemd" (docker by default)
+  docker:  /sys/fs/cgroup/:cgroup/memory/docker
+  systemd: /sys/fs/cgroup/:cgroup/memory/system.slice/docker-#{id}.slice
 
 API
 ---
