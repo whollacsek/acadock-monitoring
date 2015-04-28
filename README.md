@@ -21,6 +21,7 @@ From environment
 * `CGROUP_SOURCE`: "docker" or "systemd" (docker by default)
   docker:  /sys/fs/cgroup/:cgroup/memory/docker
   systemd: /sys/fs/cgroup/:cgroup/memory/system.slice/docker-#{id}.slice
+* `DEBUG`: output of debugging information (default "false", switch to "true" to enable)
 
 Docker
 ------
@@ -31,8 +32,12 @@ Run from docker:
 docker run -v /sys/fs/cgroup:/host/cgroup:ro         -e CGROUP_DIR=/host/cgroup \
            -v /proc:/host/proc:ro                    -e PROC_DIR=/host/proc \
            -v /var/run/docker.sock:/host/docker.sock -e DOCKER_URL=unix:///host/docker.sock \
+					 -p 4244:4244 --privileged --pid=host \
            -d scalingo/acadock-monitoring
 ```
+
+`--pid=host`: The daemon has to find the real /proc/#{pid}/ns directory to enter a namespace  
+`--privileged`: Acadock has to enter the other containers namespaces
 
 API
 ---

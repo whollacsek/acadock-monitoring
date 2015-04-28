@@ -13,9 +13,13 @@ var ENV = map[string]string{
 	"CGROUP_DIR":    "/sys/fs/cgroup",
 	"PROC_DIR":      "/proc",
 	"RUNNER_DIR":    "/usr/bin",
+	"DEBUG":         "false",
 }
 
-var RefreshTime int
+var (
+	RefreshTime int
+	Debug       bool
+)
 
 func init() {
 	for k, v := range ENV {
@@ -24,6 +28,10 @@ func init() {
 		} else {
 			os.Setenv(k, v)
 		}
+	}
+
+	if ENV["DEBUG"] == "1" || ENV["DEBUG"] == "true" {
+		Debug = true
 	}
 
 	var err error
