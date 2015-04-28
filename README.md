@@ -15,8 +15,9 @@ From environment
 * `PORT`: port to bind (4244 by default)
 * `DOCKER_URL`: docker endpoint (http://127.0.0.1:4243 by default)
 * `REFRESH_TIME`: number of second between CPU/net refresh (1 by default)
-* `BASE_PROC_PATH`: mountpoint for procfs (default to /proc)
-* `BASE_CGROUP_PATH`: mountpoint of cgroups (default to /sys/fs/cgroup)
+* `PROC_DIR`: mountpoint for procfs (default to /proc)
+* `RUNNER_DIR`: directory of runner, process to run in namespaces of containers, (default to /usr/bin)
+* `CGROUP_DIR`: mountpoint of cgroups (default to /sys/fs/cgroup)
 * `CGROUP_SOURCE`: "docker" or "systemd" (docker by default)
   docker:  /sys/fs/cgroup/:cgroup/memory/docker
   systemd: /sys/fs/cgroup/:cgroup/memory/system.slice/docker-#{id}.slice
@@ -27,9 +28,10 @@ Docker
 Run from docker:
 
 ```
-docker run -v /sys/fs/cgroup:/host/cgroup:ro -e BASE_CGROUP_PATH=/host/cgroup \
+docker run -v /sys/fs/cgroup:/host/cgroup:ro         -e CGROUP_DIR=/host/cgroup \
+           -v /proc:/host/proc:ro                    -e PROC_DIR=/host/proc \
            -v /var/run/docker.sock:/host/docker.sock -e DOCKER_URL=unix:///host/docker.sock \
-           -v /proc:/host/proc -d scalingo/acadock-monitoring
+           -d scalingo/acadock-monitoring
 ```
 
 API

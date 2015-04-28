@@ -9,6 +9,8 @@ RUN cd /go/src/github.com/Scalingo/acadock-monitoring/server && \
     cd /go/src/github.com/Scalingo/acadock-monitoring/runner/net && \
     godep go install
 
+ENV RUNNER_DIR=/go/bin
+
 CMD /go/bin/server
 
 EXPOSE 4244

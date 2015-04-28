@@ -11,18 +11,14 @@ import (
 )
 
 func NetStatsRunner(pid string) (netstat.NetworkStats, error) {
-	ns, err := netns.SetnsFromProcDir(config.ENV["BASE_PROC_PATH"] + "/" + pid)
+	ns, err := netns.SetnsFromProcDir(config.ENV["PROC_DIR"] + "/" + pid)
 	if err != nil {
 		return nil, err
 	}
 	defer ns.Close()
 
-	path, err := exec.LookPath("net_stats_runner")
-	if err != nil {
-		return nil, err
-	}
 	stdout := new(bytes.Buffer)
-	cmd := exec.Command(path)
+	cmd := exec.Command(config.ENV["RUNNER_DIR"] + "/net")
 	cmd.Stdout = stdout
 	err = cmd.Start()
 	if err != nil {
