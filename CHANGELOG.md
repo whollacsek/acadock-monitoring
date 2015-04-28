@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## To be released
+
+* Can run in a container
+* Stats of net interface of containers
+
 ## v0.1.2
 
 * CPU monitoring "not ready" -> -1
