@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Soulou/acadock-monitoring/config"
-	"github.com/Soulou/acadock-monitoring/docker"
+	"github.com/Scalingo/acadock-monitoring/config"
+	"github.com/Scalingo/acadock-monitoring/docker"
 )
 
 const (

@@ -1,7 +1,7 @@
 package docker
 
 import (
-	"github.com/Soulou/acadock-monitoring/config"
+	"github.com/Scalingo/acadock-monitoring/config"
 	"github.com/fsouza/go-dockerclient"
 	"gopkg.in/errgo.v1"
 )

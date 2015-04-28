@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"net/http/pprof"
 
-	"github.com/Soulou/acadock-monitoring/cpu"
-	"github.com/Soulou/acadock-monitoring/mem"
-	"github.com/Soulou/acadock-monitoring/net"
+	"github.com/Scalingo/acadock-monitoring/cpu"
+	"github.com/Scalingo/acadock-monitoring/mem"
+	"github.com/Scalingo/acadock-monitoring/net"
 	"github.com/codegangsta/martini"
 )
 

@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/Scalingo/go-netstat"
-	"github.com/Soulou/acadock-monitoring/config"
-	"github.com/Soulou/acadock-monitoring/docker"
-	"github.com/Soulou/acadock-monitoring/runner"
+	"github.com/Scalingo/acadock-monitoring/config"
+	"github.com/Scalingo/acadock-monitoring/docker"
+	"github.com/Scalingo/acadock-monitoring/runner"
 )
 
 var (

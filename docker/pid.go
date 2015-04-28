@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Soulou/acadock-monitoring/config"
+	"github.com/Scalingo/acadock-monitoring/config"
 )
 
 func Pid(id string) (string, error) {

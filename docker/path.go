@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Soulou/acadock-monitoring/config"
+	"github.com/Scalingo/acadock-monitoring/config"
 	"gopkg.in/errgo.v1"
 )
 

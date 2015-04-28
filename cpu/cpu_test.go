@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Soulou/acadock-live-lxc/lxc"
+	"github.com/Scalingo/acadock-live-lxc/lxc"
 )
 
 const (
