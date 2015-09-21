@@ -50,9 +50,21 @@ func containerNetUsageHandler(params martini.Params, res http.ResponseWriter) {
 	json.NewEncoder(res).Encode(&containerNet)
 }
 
+func containersMemUsageHandler(params martini.Params, res http.ResponseWriter) {
+	containerMemory, err := mem.GetAllUsage()
+	if err != nil {
+		res.Write([]byte(err.Error()))
+		return
+	}
+
+	res.WriteHeader(200)
+	json.NewEncoder(res).Encode(containerMemory)
+}
+
 func main() {
 	doProfile := flag.Bool("profile", false, "profile app")
 	flag.Parse()
+	go mem.Monitor()
 	go cpu.Monitor()
 	go net.Monitor("eth0")
 
@@ -61,6 +73,7 @@ func main() {
 	r.Get("/containers/:id/mem", containerMemUsageHandler)
 	r.Get("/containers/:id/cpu", containerCpuUsageHandler)
 	r.Get("/containers/:id/net", containerNetUsageHandler)
+	r.Get("/containers/mem", containersMemUsageHandler)
 
 	if *doProfile {
 		log.Println("Enable profiling")
